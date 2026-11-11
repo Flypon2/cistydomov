@@ -1,0 +1,459 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ukázkový web úklidové firmy Čistý Domov v Praze.">
+  <title>Čistý Domov | Úklid bez starostí</title>
+  <style>
+    :root {
+      --green: #174d3b;
+      --lime: #d8f36a;
+      --cream: #f8f7f0;
+      --ink: #1c2a24;
+      --muted: #69756e;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      padding: 22px 0;
+      background: var(--cream);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--green);
+    }
+
+    .logo span { color: #84a72c; }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      font-size: .94rem;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      border: 0;
+      padding: 13px 21px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .2s, background .2s;
+    }
+
+    .button:hover {
+      background: #23674f;
+      transform: translateY(-2px);
+    }
+
+    .button.light {
+      background: var(--lime);
+      color: var(--green);
+    }
+
+    .hero { padding: 65px 0 80px; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 5.5vw, 4.8rem);
+      line-height: 1.04;
+      letter-spacing: -2px;
+      margin: 18px 0;
+    }
+
+    h1 span { color: #75972a; }
+
+    .hero p {
+      max-width: 510px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .visual {
+      min-height: 420px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 80% 20%, #d8f36a 0 10%, transparent 10.5%),
+        linear-gradient(145deg, #dfe9d9, #a8c5a8);
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+    }
+
+    .visual-card {
+      background: rgba(255,255,255,.92);
+      border-radius: 20px;
+      padding: 28px;
+      width: 75%;
+      box-shadow: 0 20px 50px #234b321c;
+      transform: rotate(-3deg);
+    }
+
+    .visual-icon {
+      font-size: 4.5rem;
+      margin-bottom: 10px;
+    }
+
+    .visual-card h3 { margin: 0 0 8px; font-size: 1.5rem; }
+    .visual-card p { font-size: .95rem; }
+
+    section { padding: 75px 0; }
+
+    .section-heading {
+      max-width: 650px;
+      margin-bottom: 35px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      margin: 12px 0;
+      letter-spacing: -1px;
+    }
+
+    .section-heading p { color: var(--muted); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: white;
+      border: 1px solid #e7e9df;
+      border-radius: 16px;
+      padding: 26px;
+    }
+
+    .service-icon { font-size: 2rem; }
+
+    .service-card h3 { margin: 14px 0 8px; }
+    .service-card p { color: var(--muted); font-size: .95rem; }
+
+    .price {
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--green);
+      margin-top: 18px;
+    }
+
+    .note { font-size: .8rem; color: var(--muted); }
+
+    .why { background: #eaf0e5; }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .check-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .check-list li { margin: 18px 0; }
+
+    .check-list li::before {
+      content: "✓";
+      display: inline-grid;
+      place-items: center;
+      width: 27px;
+      height: 27px;
+      margin-right: 12px;
+      background: var(--lime);
+      color: var(--green);
+      border-radius: 50%;
+      font-weight: 800;
+    }
+
+    .quote {
+      background: var(--green);
+      color: white;
+      padding: 35px;
+      border-radius: 20px;
+    }
+
+    .quote p { font-size: 1.25rem; }
+    .quote small { color: #d8e7d9; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 50px;
+    }
+
+    .contact-info p { color: var(--muted); }
+
+    form {
+      display: grid;
+      gap: 15px;
+      background: white;
+      border: 1px solid #e7e9df;
+      border-radius: 16px;
+      padding: 26px;
+    }
+
+    label { font-size: .9rem; font-weight: 700; }
+
+    input, select, textarea {
+      display: block;
+      width: 100%;
+      margin-top: 6px;
+      padding: 13px;
+      border: 1px solid #d9ded5;
+      border-radius: 8px;
+      background: #fff;
+      font: inherit;
+    }
+
+    textarea { resize: vertical; }
+
+    .form-message {
+      color: var(--green);
+      font-weight: 700;
+      font-size: .9rem;
+    }
+
+    footer {
+      background: #123b2e;
+      color: white;
+      padding: 27px 0;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    footer small { color: #c8d8cc; }
+
+    @media (max-width: 760px) {
+      .nav-links a:not(.button) { display: none; }
+      .hero { padding-top: 35px; }
+      .hero-grid, .why-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-grid { gap: 35px; }
+      .visual { min-height: 310px; }
+      .cards { grid-template-columns: 1fr; }
+      section { padding: 55px 0; }
+      h1 { letter-spacing: -1px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a class="logo" href="#">Čistý<span>Domov.</span></a>
+      <div class="nav-links">
+        <a href="#sluzby">Služby</a>
+        <a href="#proc-my">Proč my</a>
+        <a class="button" href="#kontakt">Nezávazná poptávka</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Úklid domácností v Praze</div>
+          <h1>Více času na život. <span>Méně starostí.</span></h1>
+          <p>
+            Ukázková prezentace úklidové firmy. Představte si,
+            že přijdete domů a všechno je přesně tak, jak má být.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#kontakt">Chci uklidit</a>
+            <a class="button light" href="#sluzby">Naše služby</a>
+          </div>
+        </div>
+
+        <div class="visual" aria-label="Ilustrační karta čistého domova">
+          <div class="visual-card">
+            <div class="visual-icon">🪴</div>
+            <h3>Čistý domov. Klidná hlava.</h3>
+            <p>Váš čas je příliš cenný na to, abyste ho trávili úklidem.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sluzby">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Co pro vás uděláme</div>
+          <h2>Čistota podle vašich potřeb</h2>
+          <p>Vyberte si službu, která vám usnadní každodenní život.</p>
+        </div>
+
+        <div class="cards">
+          <article class="service-card">
+            <div class="service-icon">🏡</div>
+            <h3>Běžný úklid</h3>
+            <p>Vysávání, vytírání, utírání prachu a úklid kuchyně i koupelny.</p>
+            <div class="price">od 350 Kč / hod.</div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">✨</div>
+            <h3>Generální úklid</h3>
+            <p>Důkladný úklid domácnosti včetně hůře dostupných míst.</p>
+            <div class="price">od 1 800 Kč</div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🔑</div>
+            <h3>Úklid po stěhování</h3>
+            <p>Příprava bytu před předáním nebo nastěhováním.</p>
+            <div class="price">od 2 000 Kč</div>
+          </article>
+        </div>
+        <p class="note">Ceny jsou pouze ilustrační a nejsou skutečnou nabídkou.</p>
+      </div>
+    </section>
+
+    <section class="why" id="proc-my">
+      <div class="container why-grid">
+        <div>
+          <div class="eyebrow">Jednoduše a bez stresu</div>
+          <h2>Váš domov si zaslouží péči.</h2>
+          <ul class="check-list">
+            <li>Individuální přístup ke každé domácnosti</li>
+            <li>Domluva termínu podle vašich možností</li>
+            <li>Jasný rozsah služeb a ceny předem</li>
+            <li>Více času na rodinu, přátele i odpočinek</li>
+          </ul>
+        </div>
+        <div class="quote">
+          <div class="eyebrow" style="color:#d8f36a">Naše filozofie</div>
+          <p>„Dobrý úklid není jen čistý byt. Je to pocit, že můžete konečně vypnout.“</p>
+          <small>Ukázkový text pro prezentaci značky</small>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <div class="eyebrow">Ozvěte se nám</div>
+          <h2>Začněme čistým štítem.</h2>
+          <p>
+            Vyplňte formulář a popište, co potřebujete.
+            V reálném projektu se zde připojí funkční způsob odesílání poptávek.
+          </p>
+          <p><strong>Lokalita:</strong> Praha a okolí</p>
+          <p><strong>E-mail:</strong> doplnit při spuštění skutečné firmy</p>
+          <p><strong>Telefon:</strong> doplnit při spuštění skutečné firmy</p>
+        </div>
+
+        <form id="contact-form">
+          <label>
+            Vaše jméno
+            <input name="name" type="text" placeholder="Jan Novák" required>
+          </label>
+
+          <label>
+            E-mail
+            <input name="email" type="email" placeholder="jan@email.cz" required>
+          </label>
+
+          <label>
+            Typ úklidu
+            <select name="service" required>
+              <option value="">Vyberte službu</option>
+              <option>Běžný úklid</option>
+              <option>Generální úklid</option>
+              <option>Úklid po stěhování</option>
+            </select>
+          </label>
+
+          <label>
+            Vaše představa
+            <textarea name="message" rows="4" placeholder="Napište nám pár detailů..."></textarea>
+          </label>
+
+          <button class="button" type="submit">Vyzkoušet formulář</button>
+          <div id="form-message" class="form-message" role="status"></div>
+          <small class="note">Demo formulář: údaje se nikam neposílají ani neukládají.</small>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <strong>ČistýDomov.</strong>
+      <small>Ukázkový web vytvořený pro portfolio · 2026</small>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.querySelector("#contact-form");
+    const message = document.querySelector("#form-message");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      message.textContent =
+        "Formulář funguje jako ukázka, ale zpráva se zatím nikam neodesílá.";
+    });
+  </script>
+</body>
+</html>
